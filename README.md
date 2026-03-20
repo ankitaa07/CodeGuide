@@ -241,7 +241,6 @@ The MVP validates logic **without requiring live platform integration**.
 **Goal:** prove pricing + triggers + payouts end‑to‑end before pilots.
 
 ---
----
 
 ## 6) AI/ML Components
 
