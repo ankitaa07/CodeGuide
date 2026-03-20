@@ -180,26 +180,67 @@ Caps:
 
 ---
 
-## 5) Platform Strategy
+## 5) Platform Strategy (Integration‑First, Q‑Commerce Embedded)
 
-### MVP → Web App
-- fastest to build + deploy  
-- easy demo via URL  
-- simpler API integration  
-- better transparency (audit visibility)  
+### 5.1 Core Principle
+RiderShield is **not a standalone rider app**. It is an **API-driven protection layer embedded inside Q‑commerce / delivery platforms** (e.g., Zepto/Blinkit/Swiggy Instamart).  
+**Riders do not install anything extra**—coverage, premiums, triggers, and payouts appear directly in the partner platform’s rider app.
 
-### Future → Mobile Integration
-- GPS-based geofencing  
-- network diagnostics  
-- push notifications + offline support  
+Accurate, claim-free income protection requires **trusted platform-native signals** that cannot be reliably captured externally:
+- Rider earnings + effective hourly rate
+- Order lifecycle (assigned → picked → delivered → cancelled)
+- Online/active status + shift windows
+- Platform outages / API failure events
 
-### 5.1 Platform Integration (Q-Commerce Native)
+---
 
-- RiderShield is designed to be embedded directly within q-commerce and food delivery platforms (e.g., rider partner apps) rather than as a standalone product.
-- This enables seamless onboarding, real-time data access (orders, earnings, online status), and zero-friction activation for riders.
-- Deep integration allows more accurate income baselining, disruption detection, and fraud prevention using platform-side signals.
-- It also ensures instant payouts within the same ecosystem, improving trust and adoption among gig workers.
-- Overall, this approach reduces dependency on external inputs while maximizing reliability and scalability.
+### 5.2 Integration Model (B2B2C)
+**B2B (customer):** Q‑commerce / delivery platforms  
+**B2C (end user):** Gig riders (accessed via the platform app)
+
+**Integration layers**
+1) **Platform API Integration (secure ingestion)**
+   - Earnings, payouts, hourly income baseline
+   - Order flow + completion rate + cancellation spikes
+   - Rider availability (online/offline/idle)
+   - System outage telemetry (error rates, latency, downtime)
+
+2) **Embedded Rider Experience (inside partner app)**
+   - Weekly coverage toggle (opt‑in or default-enabled)
+   - Policy summary (premium, caps, coverage ratio)
+   - Real-time payout notifications
+   - Transparency view: trigger reason + payout breakdown + audit trail
+
+3) **Event & Monitoring Layer (unified engine)**
+   - **External signals:** weather, traffic, AQI, civic disruptions
+   - **Platform signals:** order volume shifts, cancellations, API failures/outages  
+   Used to evaluate:
+   - Hazard triggers (parametric thresholds)
+   - Income impact vs baseline (predicted vs actual)
+
+---
+
+### 5.3 MVP Strategy (Simulation‑First)
+The MVP validates logic **without requiring live platform integration**.
+
+**Components**
+1) **Partner Dashboard (Web)**
+   - Simulate disruption scenarios
+   - View weekly pricing + policy configurations
+   - Monitor trigger activations + payout decisions
+   - Access full audit logs
+
+2) **Simulation Engine**
+   - Simulates rider earnings under normal vs disrupted conditions
+   - Simulates trigger thresholds (rain/traffic/AQI/outages)
+   - Computes payouts from policy parameters
+
+3) **Mock Platform Integration**
+   - Simulated: orders, earnings, rider activity
+   - Real APIs where feasible: weather, AQI, traffic  
+**Goal:** prove pricing + triggers + payouts end‑to‑end before pilots.
+
+---
 ---
 
 ## 6) AI/ML Components
