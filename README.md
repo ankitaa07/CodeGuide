@@ -1,6 +1,6 @@
 # RiderShield
 
-**AI-powered parametric income protection for India’s gig delivery workforce (food delivery + q-commerce).**
+**AI-powered parametric income protection for India’s q-commerce gig workforce.**
 
 RiderShield provides **claim-free, automated payouts** when real-world disruptions (rain, traffic gridlock, AQI spikes, civic restrictions, connectivity/platform outages) cause a measurable drop in rider earnings.
 
@@ -9,7 +9,7 @@ RiderShield provides **claim-free, automated payouts** when real-world disruptio
 ## 1) Problem & User Scenarios
 
 ### Problem
-Gig riders’ earnings are directly tied to completed deliveries. When disruptions occur, order volume or delivery feasibility drops, leading to **instant income loss** with no safety net.
+Gig riders’ earnings are directly tied to completed orders. When disruptions occur, order volume or delivery feasibility drops, leading to **instant income loss** with no safety net.
 
 **Disruptions covered (parametric):**
 - Extreme rainfall / flooding
@@ -24,7 +24,7 @@ Gig riders’ earnings are directly tied to completed deliveries. When disruptio
 
 | Persona | Details | Scenario | RiderShield Action |
 | :--- | :--- | :--- | :--- |
-| **Rahul**<br>Full-time food delivery rider | **Works:** 8–10 hrs/day<br>**Earnings:** ₹900–₹1200/day<br>**Risk:** high exposure to weather + congestion | Heavy rain reduces demand and slows travel → fewer deliveries | Detect rain + verify income drop → automatic payout |
+| **Rahul**<br>Full-time q-commerce partner | **Works:** 8–10 hrs/day<br>**Earnings:** ₹900–₹1200/day<br>**Risk:** high exposure to weather + congestion | Heavy rain reduces demand and slows travel → fewer completed orders | Detect rain + verify income drop → automatic payout |
 | **Priya**<br>Part-time q-commerce partner | **Works:** 4–5 hrs (evenings)<br>**Earnings:** ₹400–₹700/shift<br>**Risk:** dependent on platform uptime + order flow | Platform outage or gridlock → cancellations → lower earnings | Detect outage/gridlock + verify impact → automatic payout |
 
 ---
@@ -145,7 +145,7 @@ Two-layer design:
 ## 5) Platform Strategy (Integration‑First, Q‑Commerce Embedded)
 
 ### 5.1 Core Principle
-RiderShield is **not a standalone rider app**. It is an **API-driven protection layer embedded inside Q‑commerce / delivery platforms** (e.g., Zepto/Blinkit/Swiggy Instamart).  
+RiderShield is **not a standalone rider app**. It is an **API-driven protection layer embedded inside Q‑commerce platforms** (e.g., Zepto/Blinkit/Swiggy Instamart).  
 **Riders do not install anything extra**—coverage, premiums, triggers, and payouts appear directly in the partner platform’s rider app.
 
 Accurate, claim-free income protection requires **trusted platform-native signals** that cannot be reliably captured externally:
@@ -157,7 +157,7 @@ Accurate, claim-free income protection requires **trusted platform-native signal
 ---
 
 ### 5.2 Integration Model (B2B2C)
-**B2B (customer):** Q‑commerce / delivery platforms  
+**B2B (customer):** Q‑commerce platforms  
 **B2C (end user):** Gig riders (accessed via the platform app)
 
 **Integration layers**
