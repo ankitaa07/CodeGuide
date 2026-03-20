@@ -193,6 +193,13 @@ Caps:
 - network diagnostics  
 - push notifications + offline support  
 
+### 5.1 Platform Integration (Q-Commerce Native)
+
+- RiderShield is designed to be embedded directly within q-commerce and food delivery platforms (e.g., rider partner apps) rather than as a standalone product.
+- This enables seamless onboarding, real-time data access (orders, earnings, online status), and zero-friction activation for riders.
+- Deep integration allows more accurate income baselining, disruption detection, and fraud prevention using platform-side signals.
+- It also ensures instant payouts within the same ecosystem, improving trust and adoption among gig workers.
+- Overall, this approach reduces dependency on external inputs while maximizing reliability and scalability.
 ---
 
 ## 6) AI/ML Components
