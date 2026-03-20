@@ -22,23 +22,10 @@ Gig riders’ earnings are directly tied to completed deliveries. When disruptio
 
 ### Personas
 
-**Rahul — Full-time food delivery rider**
-- Works: **8–10 hrs/day**
-- Earnings: **₹900–₹1200/day**
-- Risk: high exposure to weather + congestion
-
-**Scenario:** Heavy rain reduces demand and slows travel → fewer deliveries  
-**RiderShield:** Detect rain + verify income drop → automatic payout
-
----
-
-**Priya — Part-time q-commerce partner**
-- Works: **4–5 hrs (evenings)**
-- Earnings: **₹400–₹700/shift**
-- Risk: dependent on platform uptime + order flow
-
-**Scenario:** Platform outage or gridlock → cancellations → lower earnings  
-**RiderShield:** Detect outage/gridlock + verify impact → automatic payout
+| Persona | Details | Scenario | RiderShield Action |
+| :--- | :--- | :--- | :--- |
+| **Rahul**<br>Full-time food delivery rider | **Works:** 8–10 hrs/day<br>**Earnings:** ₹900–₹1200/day<br>**Risk:** high exposure to weather + congestion | Heavy rain reduces demand and slows travel → fewer deliveries | Detect rain + verify income drop → automatic payout |
+| **Priya**<br>Part-time q-commerce partner | **Works:** 4–5 hrs (evenings)<br>**Earnings:** ₹400–₹700/shift<br>**Risk:** dependent on platform uptime + order flow | Platform outage or gridlock → cancellations → lower earnings | Detect outage/gridlock + verify impact → automatic payout |
 
 ---
 
@@ -79,25 +66,13 @@ RiderShield calculates premiums **weekly** to match gig payout cycles and keep c
 
 ### 3.1 Inputs
 
-**A) Weather risk**
-- Rain probability, intensity (>20 mm/hr), alerts  
-- Source: OpenWeatherMap (IMD optional)
-
-**B) Traffic risk**
-- Congestion vs working hours  
-- Source: TomTom / Google Traffic  
-
-**C) Air quality risk**
-- AQI spike probability (seasonality + trends)  
-- Source: WAQI  
-
-**D) Civic risk**
-- Closures, protests, events  
-- Source: curated civic feed  
-
-**E) Income exposure**
-- predicted weekly earnings + working hours  
-- volatility by time window  
+| Risk Type | Inputs | Source |
+| :--- | :--- | :--- |
+| **A) Weather risk** | Rain probability, intensity (>20 mm/hr), alerts | OpenWeatherMap (IMD optional) |
+| **B) Traffic risk** | Congestion vs working hours | TomTom / Google Traffic |
+| **C) Air quality risk**| AQI spike probability (seasonality + trends) | WAQI |
+| **D) Civic risk** | Closures, protests, events | curated civic feed |
+| **E) Income exposure** | predicted weekly earnings + working hours<br>volatility by time window | |
 
 ---
 
@@ -108,7 +83,7 @@ For each trigger *t* (rain, gridlock, AQI, civic, internet):
 - `P(t)` = probability of occurrence  
 - `S(t)` = severity (income loss impact)
 
-Define:
+**Define:**
 - `E_income` = predicted weekly income  
 - `coverage_ratio` = protected fraction (0.5–0.7)  
 - `max_payout_week` = weekly cap  
@@ -117,7 +92,6 @@ Define:
 - `ExpectedLoss = Σ_t [ P(t) * S(t) * (E_income * coverage_ratio) ]`
 - `ExpectedLoss = min(ExpectedLoss, max_payout_week)`
 - `Premium = ExpectedLoss * (1 + risk_margin) + ops_fee`
-
 
 ---
 
@@ -137,7 +111,7 @@ Two-layer design:
 1. **Hazard Trigger** → disruption exceeds threshold  
 2. **Impact Trigger** → income drops vs baseline  
 
-### Common Definitions
+**Common Definitions**
 - **Zone:** ~2 km geofence  
 - **Baseline:** expected earnings/hour from historical patterns  
 - **Impact threshold:** e.g., `income_drop ≥ 30%` over 60–120 min  
@@ -146,25 +120,13 @@ Two-layer design:
 
 ### Trigger Examples
 
-**Rain**
-- Hazard: `rain_mm_per_hr > 20` (≥ 30 min)  
-- Impact: income drop ≥ 30%  
-
-**Traffic**
-- Hazard: `avg_speed_kmh < 8` (≥ 45 min)  
-- Impact: drop ≥ 25%  
-
-**AQI**
-- Hazard: `AQI > 450` (≥ 2 hrs)  
-- Impact: drop ≥ 20–30%  
-
-**Civic**
-- Hazard: disruption in zone (≥ 60 min)  
-- Impact: drop ≥ 30%  
-
-**Connectivity**
-- Hazard: outage / failure spike (≥ 30 min)  
-- Impact: rider online but cannot complete orders  
+| Trigger Category | Hazard | Impact |
+| :--- | :--- | :--- |
+| **Rain** | `rain_mm_per_hr > 20` (≥ 30 min) | income drop ≥ 30% |
+| **Traffic** | `avg_speed_kmh < 8` (≥ 45 min) | drop ≥ 25% |
+| **AQI** | `AQI > 450` (≥ 2 hrs) | drop ≥ 20–30% |
+| **Civic** | disruption in zone (≥ 60 min) | drop ≥ 30% |
+| **Connectivity** | outage / failure spike (≥ 30 min) | rider online but cannot complete orders |
 
 ---
 
@@ -174,7 +136,7 @@ Two-layer design:
 - `insured_hourly = weekly_income / weekly_hours`  
 - `payout = insured_hourly * affected_hours * coverage_ratio`
 
-Caps:
+**Caps:**
 - `payout ≤ max_payout_per_event`
 - `payout ≤ max_payout_week`
 
@@ -214,7 +176,8 @@ Accurate, claim-free income protection requires **trusted platform-native signal
 3) **Event & Monitoring Layer (unified engine)**
    - **External signals:** weather, traffic, AQI, civic disruptions
    - **Platform signals:** order volume shifts, cancellations, API failures/outages  
-   Used to evaluate:
+
+   **Used to evaluate:**
    - Hazard triggers (parametric thresholds)
    - Income impact vs baseline (predicted vs actual)
 
@@ -238,37 +201,18 @@ The MVP validates logic **without requiring live platform integration**.
 3) **Mock Platform Integration**
    - Simulated: orders, earnings, rider activity
    - Real APIs where feasible: weather, AQI, traffic  
+
 **Goal:** prove pricing + triggers + payouts end‑to‑end before pilots.
 
 ---
 
 ## 6) AI/ML Components
 
-### A) Risk Prediction
-- Goal: predict disruption probability per zone-week  
-- Models: RF / GBM / XGBoost  
-- Output: `P(t)` or `risk_score ∈ [0,1]`  
-
----
-
-### B) Income Prediction
-- Goal: expected earnings/hour baseline  
-- Models: Linear / GBM  
-- Inputs: rider history, time, zone, seasonality  
-- Output: expected rate + confidence band  
-
----
-
-### C) Fraud Detection
-- Rules:
-  - geofence validation  
-  - online activity verification  
-  - timestamp integrity  
-
-- ML:
-  - Isolation Forest (behavior anomalies)  
-
-- Output: `fraud_score ∈ [0,1]`
+| Component | Details | Output |
+| :--- | :--- | :--- |
+| **A) Risk Prediction** | **Goal:** predict disruption probability per zone-week<br>**Models:** RF / GBM / XGBoost | `P(t)` or `risk_score ∈ [0,1]` |
+| **B) Income Prediction**| **Goal:** expected earnings/hour baseline<br>**Models:** Linear / GBM<br>**Inputs:** rider history, time, zone, seasonality | expected rate + confidence band |
+| **C) Fraud Detection** | **Rules:** geofence validation, online activity verification, timestamp integrity<br>**ML:** Isolation Forest (behavior anomalies) | `fraud_score ∈ [0,1]` |
 
 ---
 
@@ -293,13 +237,13 @@ Privacy-conscious signals include:
 - Network/app signals: timeout/retry patterns, latency/jitter, heartbeat gaps, repeated identical fingerprints from "different" riders.
 - Ring detection: repeated near-cap claiming, synchronized behavior across accounts, shared payout identifiers/devices, micro-area/time spikes in claims.
 
-Models:
+**Models:**
 - Per-rider anomalies: Isolation Forest.
 - Coordinated rings: graph/clustering + burst detection.
 
 ### 3) UX balance (flagged claims without penalizing honest riders)
 
-Confidence tiers:
+**Confidence tiers:**
 - Green: instant payout.
 - Amber: delayed payout + passive recheck (telemetry sync grace window, cross-source hazard validation, signal recovery).
 - Red: block + manual review (substantial fraud evidence only).
@@ -310,35 +254,14 @@ To avoid rejecting honest riders due to missing telemetry, we use grace windows 
 
 ## 7) Tech Stack
 
-**Frontend**
-- React  
-- Tailwind CSS  
-- Mapbox / Google Maps API  
-
-**Backend**
-- Node.js + Express / Python Flask  
-
-Services:
-- Pricing  
-- Policy  
-- Monitoring  
-- Payout  
-
-**ML**
-- Python  
-- Pandas, NumPy  
-- scikit-learn  
-
-**APIs**
-- OpenWeatherMap  
-- TomTom / Google Traffic  
-- WAQI  
-- Cloudflare Radar  
-- Razorpay  
-
-**Data**
-- Postgres  
-- Redis  
+| Category | Technologies |
+| :--- | :--- |
+| **Frontend** | React, Tailwind CSS, Mapbox / Google Maps API |
+| **Backend** | Node.js + Express / Python Flask |
+| **Services** | Pricing, Policy, Monitoring, Payout |
+| **ML** | Python, Pandas, NumPy, scikit-learn |
+| **APIs** | OpenWeatherMap, TomTom / Google Traffic, WAQI, Cloudflare Radar, Razorpay |
+| **Data** | Postgres, Redis |
 
 ---
 
