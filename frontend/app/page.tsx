@@ -1,160 +1,200 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { CloudRain, Car, WifiOff, AlertTriangle, Wind } from "lucide-react";
-import { motion } from "framer-motion";
+import {
+  MapPin,
+  Search,
+  User,
+  ShoppingCart,
+  CloudRain,
+  Car,
+  Shield,
+} from "lucide-react";
 
-export default function Home() {
+export default function RiderDashboard() {
   const router = useRouter();
 
   return (
-    <main className="bg-[#0B0F1A] text-white min-h-screen overflow-hidden">
+    <main className="bg-[#F8F8F8] min-h-screen text-black">
 
-      {/* HERO */}
-      <section className="relative flex flex-col items-center justify-center text-center px-6 py-28">
+      {/* 🔥 NAVBAR (BLINKIT STYLE) */}
+      <div className="bg-white px-6 py-4 flex items-center justify-between shadow-sm">
 
-        {/* Background Glow */}
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-blue-600/20 via-transparent to-green-500/10 blur-3xl"></div>
+        <h1 className="text-2xl font-bold text-yellow-500">
+          blinkit
+        </h1>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-6xl font-bold leading-tight max-w-4xl"
+        <div className="flex items-center gap-2 text-sm">
+          <MapPin size={16} />
+          Chennai
+        </div>
+
+        <div className="flex items-center bg-gray-100 px-4 py-2 rounded-xl w-[40%]">
+          <Search size={16} />
+          <input
+            placeholder="Search deliveries..."
+            className="bg-transparent outline-none ml-2 w-full"
+          />
+        </div>
+
+        <div className="flex gap-6">
+          <User />
+          <ShoppingCart />
+        </div>
+
+      </div>
+
+      {/* 🔥 CATEGORY BAR */}
+      <div className="bg-white px-6 py-3 flex gap-6 text-sm border-b">
+
+        <button className="font-semibold border-b-2 border-black pb-1">
+          Dashboard
+        </button>
+
+        <button>Orders</button>
+        <button>Earnings</button>
+
+        {/* ⭐ INSURANCE TAB */}
+        <button
+          onClick={() => router.push("/ridershield")}
+          className="text-blue-600 font-semibold"
         >
-          Protect Your Daily Earnings.
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-            {" "}Automatically.
-          </span>
-        </motion.h1>
+          RiderShield
+        </button>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-gray-400 mt-6 max-w-xl text-lg"
-        >
-          AI-powered income protection for gig workers. Get paid instantly when
-          disruptions reduce your earnings.
-        </motion.p>
+      </div>
 
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="mt-8 flex gap-4"
-        >
-          <button
-            onClick={() => router.push("/dashboard")}
-            className="bg-blue-600 px-8 py-3 rounded-xl font-medium shadow-lg transition-all hover:scale-[1.05] hover:shadow-[0_0_25px_rgba(59,130,246,0.6)]"
-          >
-            Get Started
-          </button>
+      {/* 🔥 MAIN CONTENT */}
+      <div className="px-6 py-6 space-y-6">
 
-          <button
-            onClick={() => router.push("/dashboard")}
-            className="border border-gray-600 px-8 py-3 rounded-xl hover:border-white hover:scale-[1.05] transition"
-          >
-            View Demo
-          </button>
-        </motion.div>
+        {/* 💰 EARNINGS BANNER */}
+        <div className="bg-gradient-to-r from-yellow-400 to-green-400 rounded-3xl p-6 flex justify-between items-center">
 
-        <p className="text-sm text-gray-500 mt-6">
-          ⚡ Automated • Transparent • No Claims Needed
-        </p>
+          <div>
+            <h2 className="text-2xl font-bold">
+              ₹1,240 earned today
+            </h2>
+            <p className="text-sm mt-1">
+              18 deliveries • 7 hours online
+            </p>
+          </div>
 
-        {/* 🔥 PRODUCT PREVIEW (BIG IMPACT) */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="mt-16 w-full max-w-4xl"
-        >
-          <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-xl shadow-xl">
+          <div className="text-right text-sm">
+            <p>Zone</p>
+            <p className="font-semibold">OMR</p>
+          </div>
 
-            <div className="grid grid-cols-3 gap-4 mb-4">
-              <div className="bg-white/10 p-4 rounded-xl">₹950 Earnings</div>
-              <div className="bg-green-500/20 p-4 rounded-xl">Coverage Active</div>
-              <div className="bg-yellow-500/20 p-4 rounded-xl">Risk Medium</div>
+        </div>
+
+        {/* 📊 STATS CARDS */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+          <div className="bg-white p-4 rounded-2xl shadow-sm">
+            <p className="text-gray-500 text-sm">Deliveries</p>
+            <h2 className="text-xl font-bold">18</h2>
+          </div>
+
+          <div className="bg-white p-4 rounded-2xl shadow-sm">
+            <p className="text-gray-500 text-sm">Earnings</p>
+            <h2 className="text-xl font-bold">₹1240</h2>
+          </div>
+
+          <div className="bg-white p-4 rounded-2xl shadow-sm">
+            <p className="text-gray-500 text-sm">Hours</p>
+            <h2 className="text-xl font-bold">7h</h2>
+          </div>
+
+          <div className="bg-white p-4 rounded-2xl shadow-sm">
+            <p className="text-gray-500 text-sm">Rating</p>
+            <h2 className="text-xl font-bold">4.8 ⭐</h2>
+          </div>
+
+        </div>
+
+        {/* 🌧 LIVE CONDITIONS */}
+        <div className="bg-white p-5 rounded-2xl shadow-sm">
+
+          <h2 className="font-semibold mb-4">
+            Live Delivery Conditions
+          </h2>
+
+          <div className="flex gap-6">
+
+            <div className="flex items-center gap-3">
+              <CloudRain className="text-blue-500" />
+              <div>
+                <p className="text-sm font-medium">Rain</p>
+                <p className="text-xs text-red-500">
+                  Heavy impact
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-3 text-sm">
-              <div className="bg-red-500/20 p-3 rounded-xl">🌧️ Rain High</div>
-              <div className="bg-yellow-500/20 p-3 rounded-xl">🚗 Traffic</div>
-              <div className="bg-green-500/20 p-3 rounded-xl">🌫️ AQI</div>
-              <div className="bg-green-500/20 p-3 rounded-xl">📡 Stable</div>
+            <div className="flex items-center gap-3">
+              <Car className="text-yellow-500" />
+              <div>
+                <p className="text-sm font-medium">Traffic</p>
+                <p className="text-xs text-yellow-500">
+                  Moderate
+                </p>
+              </div>
             </div>
 
           </div>
-        </motion.div>
 
-      </section>
+        </div>
 
-      {/* HOW IT WORKS */}
-      <section className="px-6 md:px-16 py-20">
-        <h2 className="text-3xl font-semibold mb-12 text-center">
-          How RiderShield Works
-        </h2>
+        {/* 📦 RECENT DELIVERIES */}
+        <div className="bg-white p-5 rounded-2xl shadow-sm">
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            "Activate weekly coverage",
-            "AI monitors real-time risks",
-            "Receive automatic payouts",
-          ].map((step, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-xl"
-            >
-              <div className="text-blue-400 font-semibold mb-2">
-                Step {i + 1}
+          <h2 className="font-semibold mb-4">
+            Recent Deliveries
+          </h2>
+
+          <div className="space-y-3">
+
+            {[
+              { place: "Adyar", amount: 80 },
+              { place: "Perungudi", amount: 90 },
+              { place: "Thoraipakkam", amount: 60 },
+            ].map((d, i) => (
+              <div
+                key={i}
+                className="flex justify-between border-b pb-2"
+              >
+                <span>{d.place}</span>
+                <span className="text-green-600 font-medium">
+                  ₹{d.amount}
+                </span>
               </div>
-              <p className="text-gray-300">{step}</p>
-            </motion.div>
-          ))}
+            ))}
+
+          </div>
+
         </div>
-      </section>
 
-      {/* RISKS */}
-      <section className="px-6 md:px-16 py-20">
-        <h2 className="text-3xl font-semibold mb-12 text-center">
-          Covered Disruptions
-        </h2>
+        {/* 🛡 INSURANCE CARD */}
+        <div className="bg-blue-100 p-6 rounded-2xl flex justify-between items-center">
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-          {[
-            { icon: <CloudRain />, label: "Rain" },
-            { icon: <Car />, label: "Traffic" },
-            { icon: <Wind />, label: "AQI" },
-            { icon: <WifiOff />, label: "Outages" },
-            { icon: <AlertTriangle />, label: "Civic" },
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ scale: 1.05 }}
-              className="flex flex-col items-center gap-3 bg-white/5 border border-white/10 rounded-2xl p-6"
-            >
-              <div className="text-blue-400">{item.icon}</div>
-              <p className="text-gray-300">{item.label}</p>
-            </motion.div>
-          ))}
+          <div>
+            <h2 className="font-semibold">
+              Insurance for Riders 🚀
+            </h2>
+            <p className="text-sm mt-1">
+              Rain may reduce your income today
+            </p>
+          </div>
+
+          <button
+            onClick={() => router.push("/ridershield")}
+            className="bg-black text-white px-4 py-2 rounded-xl"
+          >
+            Explore
+          </button>
+
         </div>
-      </section>
 
-      {/* FINAL CTA */}
-      <section className="text-center py-20 px-6">
-        <h2 className="text-3xl font-bold mb-4">
-          Start Protecting Your Income Today
-        </h2>
-
-        <button
-          onClick={() => router.push("/coverage")}
-          className="bg-green-500 px-8 py-3 rounded-xl font-medium shadow-lg hover:scale-[1.05] hover:shadow-[0_0_25px_rgba(34,197,94,0.5)] transition"
-        >
-          Activate Coverage
-        </button>
-      </section>
+      </div>
 
     </main>
   );
