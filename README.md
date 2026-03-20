@@ -371,6 +371,7 @@ Services:
 - **Small premiums → affordability**
 
 ---
+## 10) Architecture Diagram
 <p align="center">
   <img src="https://raw.githubusercontent.com/ankitaa07/CodeGuide/main/Blank%20diagram%20(1).png" width="700"/>
 </p>
