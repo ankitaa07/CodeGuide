@@ -54,6 +54,9 @@ btnRegister.addEventListener('click', async () => {
         btnRegister.innerText = "✓ Connected";
 
         btnActivate.disabled = false;
+
+        console.log("✅ Rider connected:", state.riderId);
+
         refreshAudit();
 
     } catch (e) {
@@ -77,6 +80,7 @@ btnActivate.addEventListener('click', async () => {
             body: JSON.stringify({ rider_id: state.riderId })
         });
 
+        // ✅ CRITICAL STATE FIX
         state.isActive = true;
 
         appPremium.innerText = `₹ ${data.premium}`;
@@ -84,9 +88,11 @@ btnActivate.addEventListener('click', async () => {
         rToggle.classList.add('active');
 
         btnActivate.innerText = "✅ Active";
+
+        // ✅ ENABLE TRIGGER BUTTON
         btnTrigger.disabled = false;
-        btnTrigger.disabled = false;
-state.isActive = true;
+
+        console.log("✅ Policy activated");
 
     } catch (e) {
         alert("Activation failed: " + e.message);
@@ -97,7 +103,13 @@ state.isActive = true;
 
 // ================= TRIGGER =================
 btnTrigger.addEventListener('click', async () => {
-    if (!state.isActive) return;
+
+    console.log("🔥 Trigger button clicked");
+
+    if (!state.isActive) {
+        console.log("❌ Not active");
+        return;
+    }
 
     btnTrigger.disabled = true;
 
@@ -113,8 +125,10 @@ btnTrigger.addEventListener('click', async () => {
             })
         });
 
-        triggerBanner.style.background = "green";
+        triggerBanner.style.background = "#16a34a"; // green
         triggerBanner.innerText = `₹ ${data.payout} credited`;
+
+        console.log("✅ Trigger success:", data);
 
         refreshAudit();
 
