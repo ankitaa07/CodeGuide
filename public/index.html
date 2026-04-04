@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RiderShield Phase 2 Control Center</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/style.css">
-<script src="/script.js"></script>
-<script src="app.js"></script>
 </head>
+
 <body>
     <div class="app-container">
         
-        <!-- Left Panel: Rider App Mockup -->
+        <!-- Left Panel -->
         <aside class="rider-panel">
             <div class="mobile-frame mockup-glass">
                 <div class="mobile-header">
@@ -36,7 +36,10 @@
                             <h3>🛡️ RiderShield Active</h3>
                             <button class="toggle active" disabled></button>
                         </div>
-                        <p class="micro-text">You are protected against extreme rain, outages, and gridlock for this week.</p>
+
+                        <p class="micro-text">
+                            You are protected against extreme rain, outages, and gridlock for this week.
+                        </p>
                         
                         <div class="coverage-stats">
                             <div class="stat-box">
@@ -48,34 +51,42 @@
                                 <strong id="app-cap">--</strong>
                             </div>
                         </div>
-                        <button id="btn-activate" class="btn primary full-width">Activate Policy Now</button>
+
+                        <button id="btn-activate" class="btn primary full-width">
+                            Activate Policy Now
+                        </button>
                     </div>
 
                     <div id="trigger-alert" class="trigger-alert hidden">
                         <h4>⚠️ Disruption Detected</h4>
-                        <p id="trigger-alert-msg">Hazardous conditions recorded in your zone.</p>
-                        <div class="payout-banner" id="trigger-payout-banner">Evaluating Impact...</div>
+                        <p id="trigger-alert-msg"></p>
+                        <div class="payout-banner" id="trigger-payout-banner">
+                            Evaluating Impact...
+                        </div>
                     </div>
                 </div>
             </div>
+
             <div class="mockup-label">Simulated Rider Experience (B2C)</div>
         </aside>
 
-        <!-- Right Panel: Partner Admin Dashboard -->
+        <!-- Right Panel -->
         <main class="admin-panel">
             <header class="top-header">
                 <h1>Platform Partner Dashboard</h1>
-                <p>Command center for managing risk policies, viewing real-time triggers, and auditing payouts.</p>
+                <p>Command center for managing risk policies, triggers, and payouts.</p>
             </header>
 
             <div class="dashboard-grid">
                 
-                <!-- Action Controls (The "Simulation" admin overrides) -->
                 <div class="controls-card glass-panel">
                     <h3>Environment Simulator</h3>
+
                     <div class="form-group">
                         <label>Demo Rider Setup</label>
-                        <button id="btn-register" class="btn secondary">Register & Connect Demo Rider</button>
+                        <button id="btn-register" class="btn secondary">
+                            Register & Connect Demo Rider
+                        </button>
                         <span id="admin-rider-id" class="badge">Offline</span>
                     </div>
 
@@ -83,50 +94,52 @@
 
                     <div class="form-group">
                         <label>Trigger Live Disruption</label>
+
                         <div class="flex-row">
                             <select id="select-hazard" class="custom-select">
-                                <option value="rain">Extreme Rain (>20mm/hr)</option>
+                                <option value="rain">Extreme Rain</option>
                                 <option value="traffic">Traffic Gridlock</option>
                                 <option value="outage">Connectivity Outage</option>
                             </select>
+
                             <label class="checkbox-label">
-                                <input type="checkbox" id="check-spoof"> Simulate GPS Spoof
+                                <input type="checkbox" id="check-spoof">
+                                Simulate GPS Spoof
                             </label>
                         </div>
-                        <button id="btn-trigger" class="btn danger full-width" disabled>Broadcast Disruption Event</button>
+
+                        <button id="btn-trigger" class="btn danger full-width" disabled>
+                            Broadcast Disruption Event
+                        </button>
                     </div>
                 </div>
 
-                <!-- Live Audit Logs -->
                 <div class="audit-card glass-panel">
                     <div class="header-with-action">
                         <h3>System Audit Log</h3>
                         <button id="btn-refresh-audit" class="btn ghost">↻ Refresh</button>
                     </div>
-                    <div class="table-container">
-                        <table class="audit-table">
-                            <thead>
-                                <tr>
-                                    <th>Time</th>
-                                    <th>Rider</th>
-                                    <th>Event</th>
-                                    <th>Fraud Score</th>
-                                    <th>Decision</th>
-                                    <th>Payout</th>
-                                </tr>
-                            </thead>
-                            <tbody id="audit-table-body">
-                                <tr>
-                                    <td colspan="6" class="text-center text-muted">Initialize Rider to begin...</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+
+                    <table class="audit-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Rider</th>
+                                <th>Event</th>
+                                <th>Fraud Score</th>
+                                <th>Decision</th>
+                                <th>Payout</th>
+                            </tr>
+                        </thead>
+                        <tbody id="audit-table-body"></tbody>
+                    </table>
                 </div>
+
             </div>
         </main>
     </div>
 
+    <!-- ✅ ONLY ONE SCRIPT -->
     <script src="app.js"></script>
 </body>
 </html>
