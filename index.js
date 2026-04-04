@@ -60,6 +60,42 @@ app.post("/api/fraud-check", async (req, res) => {
   }
 });
 
+// REGISTER RIDER
+app.post("/register", (req, res) => {
+  const rider = { id: req.body.rider_id };
+  res.json({ rider });
+});
+
+// ACTIVATE POLICY
+app.post("/policy/activate", (req, res) => {
+  res.json({
+    premium: 50,
+    cap: 100
+  });
+});
+
+// TRIGGER EVENT
+app.post("/events/trigger", (req, res) => {
+  res.json({
+    decision: "green",
+    payout: 120
+  });
+});
+
+// AUDIT LOGS
+app.get("/audit", (req, res) => {
+  res.json([
+    {
+      time: "10:32",
+      rider: "R-DEMO",
+      event: "rain",
+      fraud_score: 0.1,
+      decision: "green",
+      payout: 120
+    }
+  ]);
+});
+
 // ================= FRONTEND =================
 
 app.use(express.static(path.join(__dirname, "public")));
