@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp": "2026-04-04T10:49:57.790Z",
+    "rider_id": 1,
+    "trigger_type": "demo_rain",
+    "zone_id": "Koramangala",
+    "affected_hours": 1,
+    "fraud_score": 0.2,
+    "fraud_decision": "green",
+    "fraud_action": "auto_approve",
+    "fraud_components": {},
+    "pricing": {
+      "premium": 30,
+      "risk_score": 0.3
+    },
+    "expected_hourly": 75,
+    "payout": 67.5
+  }
+]
