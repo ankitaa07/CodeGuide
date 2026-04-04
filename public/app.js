@@ -1,3 +1,6 @@
+// ===== BASE URL (IMPORTANT FIX) =====
+const BASE_URL = "https://codeguide-o07s.onrender.com";
+
 // Admin Setup
 const btnRegister = document.getElementById('btn-register');
 const adminRiderIdBadge = document.getElementById('admin-rider-id');
@@ -26,36 +29,40 @@ let state = {
     isActive: false
 };
 
-// 1. Register Rider
+// ================= 1. REGISTER RIDER =================
 btnRegister.addEventListener('click', async () => {
     btnRegister.disabled = true;
     btnRegister.innerText = "Connecting...";
     
     try {
         const id = 'R-ZPTO-' + Math.floor(Math.random() * 10000);
-        const res = await fetch('/register', {
+
+        const res = await fetch(`${BASE_URL}/register`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
                 rider_id: id,
                 name: 'Priya (Zepto)',
                 phone: '9876543210',
-                zone_id: 'Koramangala', // Used to fetch weather from ML
+                zone_id: 'Koramangala',
                 weekly_hours: 40,
                 income_history: []
             })
         });
 
         const data = await res.json();
+
+        if (!res.ok) throw new Error(data.error || "Server error");
+
         state.riderId = data.rider_id;
         
         adminRiderIdBadge.innerText = state.riderId;
         adminRiderIdBadge.style.color = '#34d399';
         btnRegister.innerText = "✓ Connected";
         
-        // Unlock Rider App
         btnActivate.disabled = false;
         refreshAudit();
+
     } catch (e) {
         alert("Failed to connect rider: " + e.message);
         btnRegister.disabled = false;
@@ -63,14 +70,15 @@ btnRegister.addEventListener('click', async () => {
     }
 });
 
-// 2. Rider Activates Policy
+// ================= 2. ACTIVATE POLICY =================
 btnActivate.addEventListener('click', async () => {
     if(!state.riderId) return;
+
     btnActivate.disabled = true;
     btnActivate.innerText = "Calculating Risk Engine...";
 
     try {
-        const res = await fetch('/policy/activate', {
+        const res = await fetch(`${BASE_URL}/policy/activate`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -81,12 +89,11 @@ btnActivate.addEventListener('click', async () => {
         });
 
         const data = await res.json();
-        if(data.error) throw new Error(data.error);
+        if(!res.ok || data.error) throw new Error(data.error);
 
         state.policyId = data.policy_id;
         state.isActive = true;
 
-        // Update Rider UI
         appPremium.innerText = `₹ ${data.snapshot.premium.toFixed(2)}`;
         appCap.innerText = `₹ ${data.snapshot.caps.max_hourly_payout.toFixed(2)}/hr`;
         rToggle.classList.add('active');
@@ -102,21 +109,22 @@ btnActivate.addEventListener('click', async () => {
     }
 });
 
-// 3. Admin Simulates Hazard
+// ================= 3. TRIGGER EVENT =================
 btnTrigger.addEventListener('click', async () => {
     if(!state.isActive) return;
+
     btnTrigger.disabled = true;
+
     const hazard = selectHazard.value;
     const isSpoof = checkSpoof.checked;
     
-    // Show Rider Alert
     riderAlert.classList.remove('hidden');
     riderAlertMsg.innerText = `Severe ${hazard} detected in your delivery zone. Processing parametric check...`;
     triggerBanner.innerText = "Evaluating Impact...";
     triggerBanner.style.background = "var(--amber)";
 
     try {
-        const res = await fetch('/events/trigger', {
+        const res = await fetch(`${BASE_URL}/events/trigger`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -129,16 +137,17 @@ btnTrigger.addEventListener('click', async () => {
         });
 
         const data = await res.json();
-        
+        if(!res.ok) throw new Error(data.error || "Trigger failed");
+
         if (data.decision === 'green') {
             triggerBanner.style.background = "var(--success)";
             triggerBanner.innerText = `✅ Payout Authenticated: ₹${data.payoutAmount}`;
         } else if (data.decision === 'amber') {
-             triggerBanner.style.background = "var(--amber)";
-             triggerBanner.innerText = `⚠️ Flagged by ML (Score: ${data.fraud_score}). Delayed Payout.`;
+            triggerBanner.style.background = "var(--amber)";
+            triggerBanner.innerText = `⚠️ Flagged by ML (Score: ${data.fraud_score}). Delayed Payout.`;
         } else {
-             triggerBanner.style.background = "var(--danger)";
-             triggerBanner.innerText = `🚨 Blocked: GPS Anomaly Detected (Score: ${data.fraud_score})`;
+            triggerBanner.style.background = "var(--danger)";
+            triggerBanner.innerText = `🚨 Blocked: GPS Anomaly (Score: ${data.fraud_score})`;
         }
         
         refreshAudit();
@@ -150,19 +159,18 @@ btnTrigger.addEventListener('click', async () => {
     }
 });
 
-// 4. Audit Table Fetching
+// ================= 4. AUDIT LOG =================
 btnRefreshAudit.addEventListener('click', refreshAudit);
 
 async function refreshAudit() {
     try {
-        const res = await fetch('/audit');
+        const res = await fetch(`${BASE_URL}/audit`);
         const logs = await res.json();
         
-        if(logs.length === 0) return;
+        if(!logs || logs.length === 0) return;
         
         auditTableBody.innerHTML = '';
         
-        // Show newest first
         [...logs].reverse().forEach(log => {
             const tr = document.createElement('tr');
             
@@ -189,5 +197,5 @@ async function refreshAudit() {
     }
 }
 
-// Initial fetch
+// Initial load
 refreshAudit();
