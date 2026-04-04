@@ -85,6 +85,8 @@ btnActivate.addEventListener('click', async () => {
 
         btnActivate.innerText = "✅ Active";
         btnTrigger.disabled = false;
+        btnTrigger.disabled = false;
+state.isActive = true;
 
     } catch (e) {
         alert("Activation failed: " + e.message);
