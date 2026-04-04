@@ -1,0 +1,252 @@
+[
+  {
+    "audit_id": "AUD-1775304089988",
+    "event": "trigger_processed",
+    "rider_id": "R-DEMO-59",
+    "claim_id": "CLM-1775304089985",
+    "fraud_score": 0.2,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T12:01:29.989Z"
+  },
+  {
+    "audit_id": "AUD-1775304141040",
+    "event": "trigger_processed",
+    "rider_id": "R-DEMO-812",
+    "claim_id": "CLM-1775304141039",
+    "fraud_score": 0.2,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T12:02:21.040Z"
+  },
+  {
+    "audit_id": "AUD-1775304268650",
+    "event": "trigger_processed",
+    "rider_id": "R-DEMO-796",
+    "claim_id": "CLM-1775304268646",
+    "fraud_score": 0.2,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T12:04:28.651Z"
+  },
+  {
+    "audit_id": "AUD-1775307627835",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9195",
+    "claim_id": "CLM-1775307627832",
+    "fraud_score": 0,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T13:00:27.835Z"
+  },
+  {
+    "audit_id": "AUD-1775307638534",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9195",
+    "claim_id": "CLM-1775307638531",
+    "fraud_score": 0,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T13:00:38.534Z"
+  },
+  {
+    "audit_id": "AUD-1775307644056",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9195",
+    "claim_id": "CLM-1775307644055",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:00:44.056Z"
+  },
+  {
+    "audit_id": "AUD-1775307651968",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9195",
+    "claim_id": "CLM-1775307651967",
+    "fraud_score": 0.8,
+    "decision": "red",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:00:51.968Z"
+  },
+  {
+    "audit_id": "AUD-1775307657794",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9195",
+    "claim_id": "CLM-1775307657793",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:00:57.794Z"
+  },
+  {
+    "audit_id": "AUD-1775307663816",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9195",
+    "claim_id": "CLM-1775307663814",
+    "fraud_score": 0,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T13:01:03.816Z"
+  },
+  {
+    "audit_id": "AUD-1775310542540",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310542537",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:49:02.540Z"
+  },
+  {
+    "audit_id": "AUD-1775310546572",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310546571",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:49:06.572Z"
+  },
+  {
+    "audit_id": "AUD-1775310559001",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310559000",
+    "fraud_score": 0.8,
+    "decision": "red",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:49:19.001Z"
+  },
+  {
+    "audit_id": "AUD-1775310563868",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310563867",
+    "fraud_score": 0.8,
+    "decision": "red",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:49:23.868Z"
+  },
+  {
+    "audit_id": "AUD-1775310567278",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310567277",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:49:27.278Z"
+  },
+  {
+    "audit_id": "AUD-1775310573919",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310573917",
+    "fraud_score": 0,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T13:49:33.919Z"
+  },
+  {
+    "audit_id": "AUD-1775310579728",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310579727",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:49:39.728Z"
+  },
+  {
+    "audit_id": "AUD-1775310602900",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310602899",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:50:02.900Z"
+  },
+  {
+    "audit_id": "AUD-1775310621836",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310621835",
+    "fraud_score": 0.8,
+    "decision": "red",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:50:21.836Z"
+  },
+  {
+    "audit_id": "AUD-1775310696522",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310696521",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:51:36.522Z"
+  },
+  {
+    "audit_id": "AUD-1775310699804",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310699800",
+    "fraud_score": 0,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T13:51:39.804Z"
+  },
+  {
+    "audit_id": "AUD-1775310744671",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310744668",
+    "fraud_score": 0,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T13:52:24.671Z"
+  },
+  {
+    "audit_id": "AUD-1775310747373",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-9520",
+    "claim_id": "CLM-1775310747372",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T13:52:27.373Z"
+  },
+  {
+    "audit_id": "AUD-1775311228828",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-6048",
+    "claim_id": "CLM-1775311228826",
+    "fraud_score": 0,
+    "decision": "green",
+    "payout_amount": 250,
+    "timestamp": "2026-04-04T14:00:28.828Z"
+  },
+  {
+    "audit_id": "AUD-1775311251927",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-6048",
+    "claim_id": "CLM-1775311251926",
+    "fraud_score": 0.4,
+    "decision": "amber",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T14:00:51.927Z"
+  },
+  {
+    "audit_id": "AUD-1775311271585",
+    "event": "trigger_processed",
+    "rider_id": "R-ZPTO-6048",
+    "claim_id": "CLM-1775311271584",
+    "fraud_score": 0.8,
+    "decision": "red",
+    "payout_amount": 0,
+    "timestamp": "2026-04-04T14:01:11.585Z"
+  }
+]

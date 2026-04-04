@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RiderShield Phase 2 Control Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        
+        <!-- Left Panel: Rider App Mockup -->
+        <aside class="rider-panel">
+            <div class="mobile-frame mockup-glass">
+                <div class="mobile-header">
+                    <div>9:41</div>
+                    <div class="mobile-status-bar">📶 🔋</div>
+                </div>
+                
+                <div class="mobile-app-content">
+                    <div class="app-nav">
+                        <div class="brand">Zepto Partner</div>
+                        <div class="profile-pic">R</div>
+                    </div>
+
+                    <div class="earnings-hero">
+                        <p>This week's earnings</p>
+                        <h2>₹ 5,000</h2>
+                    </div>
+
+                    <div class="coverage-card">
+                        <div class="coverage-header">
+                            <h3>🛡️ RiderShield Active</h3>
+                            <button class="toggle active" disabled></button>
+                        </div>
+                        <p class="micro-text">You are protected against extreme rain, outages, and gridlock for this week.</p>
+                        
+                        <div class="coverage-stats">
+                            <div class="stat-box">
+                                <span>Premium</span>
+                                <strong id="app-premium">--</strong>
+                            </div>
+                            <div class="stat-box">
+                                <span>Max Rate</span>
+                                <strong id="app-cap">--</strong>
+                            </div>
+                        </div>
+                        <button id="btn-activate" class="btn primary full-width">Activate Policy Now</button>
+                    </div>
+
+                    <div id="trigger-alert" class="trigger-alert hidden">
+                        <h4>⚠️ Disruption Detected</h4>
+                        <p id="trigger-alert-msg">Hazardous conditions recorded in your zone.</p>
+                        <div class="payout-banner" id="trigger-payout-banner">Evaluating Impact...</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mockup-label">Simulated Rider Experience (B2C)</div>
+        </aside>
+
+        <!-- Right Panel: Partner Admin Dashboard -->
+        <main class="admin-panel">
+            <header class="top-header">
+                <h1>Platform Partner Dashboard</h1>
+                <p>Command center for managing risk policies, viewing real-time triggers, and auditing payouts.</p>
+            </header>
+
+            <div class="dashboard-grid">
+                
+                <!-- Action Controls (The "Simulation" admin overrides) -->
+                <div class="controls-card glass-panel">
+                    <h3>Environment Simulator</h3>
+                    <div class="form-group">
+                        <label>Demo Rider Setup</label>
+                        <button id="btn-register" class="btn secondary">Register & Connect Demo Rider</button>
+                        <span id="admin-rider-id" class="badge">Offline</span>
+                    </div>
+
+                    <hr class="divider">
+
+                    <div class="form-group">
+                        <label>Trigger Live Disruption</label>
+                        <div class="flex-row">
+                            <select id="select-hazard" class="custom-select">
+                                <option value="rain">Extreme Rain (>20mm/hr)</option>
+                                <option value="traffic">Traffic Gridlock</option>
+                                <option value="outage">Connectivity Outage</option>
+                            </select>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="check-spoof"> Simulate GPS Spoof
+                            </label>
+                        </div>
+                        <button id="btn-trigger" class="btn danger full-width" disabled>Broadcast Disruption Event</button>
+                    </div>
+                </div>
+
+                <!-- Live Audit Logs -->
+                <div class="audit-card glass-panel">
+                    <div class="header-with-action">
+                        <h3>System Audit Log</h3>
+                        <button id="btn-refresh-audit" class="btn ghost">↻ Refresh</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="audit-table">
+                            <thead>
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Rider</th>
+                                    <th>Event</th>
+                                    <th>Fraud Score</th>
+                                    <th>Decision</th>
+                                    <th>Payout</th>
+                                </tr>
+                            </thead>
+                            <tbody id="audit-table-body">
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted">Initialize Rider to begin...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

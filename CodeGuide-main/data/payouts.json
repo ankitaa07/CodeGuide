@@ -1,0 +1,62 @@
+[
+  {
+    "claim_id": "CLM-1775304089985",
+    "rider_id": "R-DEMO-59",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775304141039",
+    "rider_id": "R-DEMO-812",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775304268646",
+    "rider_id": "R-DEMO-796",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775307627832",
+    "rider_id": "R-ZPTO-9195",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775307638531",
+    "rider_id": "R-ZPTO-9195",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775307663814",
+    "rider_id": "R-ZPTO-9195",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775310573917",
+    "rider_id": "R-ZPTO-9520",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775310699800",
+    "rider_id": "R-ZPTO-9520",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775310744668",
+    "rider_id": "R-ZPTO-9520",
+    "amount": 250,
+    "status": "completed"
+  },
+  {
+    "claim_id": "CLM-1775311228826",
+    "rider_id": "R-ZPTO-6048",
+    "amount": 250,
+    "status": "completed"
+  }
+]

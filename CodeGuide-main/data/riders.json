@@ -1,0 +1,110 @@
+[
+  {
+    "rider_id": "R-DEMO",
+    "name": "Demo Rider",
+    "phone": "9999999999",
+    "zone_id": "Z01",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T11:49:32.599Z"
+  },
+  {
+    "rider_id": "R-DEMO-59",
+    "name": "Demo Rider",
+    "phone": "9999999999",
+    "zone_id": "Z01",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T11:58:40.138Z"
+  },
+  {
+    "rider_id": "R-DEMO-475",
+    "name": "Demo Rider",
+    "phone": "9999999999",
+    "zone_id": "Z01",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T12:01:52.867Z"
+  },
+  {
+    "rider_id": "R-DEMO-812",
+    "name": "Demo Rider",
+    "phone": "9999999999",
+    "zone_id": "Z01",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T12:02:18.003Z"
+  },
+  {
+    "rider_id": "R-DEMO-796",
+    "name": "Demo Rider",
+    "phone": "9999999999",
+    "zone_id": "Z01",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T12:04:20.918Z"
+  },
+  {
+    "rider_id": "R-ZPTO-1229",
+    "name": "Priya (Zepto)",
+    "phone": "9876543210",
+    "zone_id": "Koramangala",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T12:45:19.755Z"
+  },
+  {
+    "rider_id": "R-ZPTO-8275",
+    "name": "Priya (Zepto)",
+    "phone": "9876543210",
+    "zone_id": "Koramangala",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T12:49:53.025Z"
+  },
+  {
+    "rider_id": "R-ZPTO-3889",
+    "name": "Priya (Zepto)",
+    "phone": "9876543210",
+    "zone_id": "Koramangala",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T12:55:10.758Z"
+  },
+  {
+    "rider_id": "R-ZPTO-9195",
+    "name": "Priya (Zepto)",
+    "phone": "9876543210",
+    "zone_id": "Koramangala",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T12:59:43.291Z"
+  },
+  {
+    "rider_id": "R-ZPTO-9520",
+    "name": "Priya (Zepto)",
+    "phone": "9876543210",
+    "zone_id": "Koramangala",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T13:47:47.606Z"
+  },
+  {
+    "rider_id": "R-ZPTO-4520",
+    "name": "Priya (Zepto)",
+    "phone": "9876543210",
+    "zone_id": "Koramangala",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T13:57:46.633Z"
+  },
+  {
+    "rider_id": "R-ZPTO-6048",
+    "name": "Priya (Zepto)",
+    "phone": "9876543210",
+    "zone_id": "Koramangala",
+    "income_history": [],
+    "weekly_hours": 40,
+    "created_at": "2026-04-04T14:00:09.812Z"
+  }
+]
